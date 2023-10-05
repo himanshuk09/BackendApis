@@ -6,7 +6,7 @@ const port = 8000;
 
 //Connection Start
 mongoose
-  .connect("mongodb://localhost:27017/CompanyDB")
+  .connect("mongodb://0.0.0.0:27017/CompanyDB")
   .then((result) => {
     //true
     console.log("Database Connected");

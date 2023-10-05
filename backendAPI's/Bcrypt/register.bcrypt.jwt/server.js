@@ -2,28 +2,28 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const port = 7000;
-const bodyParser= require("body-parser");
-const jwt =require("jsonwebtoken");
+const bodyParser = require("body-parser");
+const jwt = require("jsonwebtoken");
 
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 //parse application/json
 app.use(bodyParser.json());
 
 mongoose
     .connect("mongodb://127.0.0.1:27017/regisdb")
-    .then(()=>{
+    .then(() => {
         console.log("database is conneted");
     })
-    .catch((error)=>{
-        console.log("Unable to connect",error);
+    .catch((error) => {
+        console.log("Unable to connect", error);
     });
 
-    const RegisterRoutes =require("./src/routes/register.routes");
-   app.use("/register",RegisterRoutes); 
-   
+const RegisterRoutes = require("./src/routes/register.routes");
+app.use("/register", RegisterRoutes);
+
 // jsonwebtoken
 
 // const createToken =async() =>{
@@ -37,6 +37,6 @@ mongoose
 // createToken();
 
 
-app.listen(port,function(){
-    console.log("running on port",port);
+app.listen(port, function () {
+    console.log("running on port", port);
 });

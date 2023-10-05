@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 //connect nodejs to mongodb
 mongoose
-  .connect("mongodb://localhost:27017/company")
+  .connect("mongodb://0.0.0.0:27017/company")
   .then((res) => {
     console.log("Database connected");
   })
